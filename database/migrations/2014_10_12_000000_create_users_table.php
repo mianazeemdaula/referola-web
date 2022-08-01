@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_type_id');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

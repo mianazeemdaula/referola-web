@@ -17,14 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
+            $table->unsignedBigInteger('seller_id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('campaign_type_id');
+            $table->string('content');
             $table->unsignedInteger('user_share');
             $table->unsignedInteger('friend_share');
             $table->unsignedInteger('user_share');
-            $table->unsignedInteger('user_share');
-            $table->unsignedInteger('user_share');
-            $table->string('terms_and_condition');
-
+            $table->longText('terms_and_condition');
             $table->timestamps();
         });
     }

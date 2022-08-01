@@ -25,11 +25,11 @@ return new class extends Migration
             $table->string('zipcode');
             $table->string('country');
             $table->string('city');
+            $table->point('position');
             $table->boolean('is_license');
             $table->boolean('is_home_based');
             $table->boolean('is_bonded');
             $table->boolean('is_insured');
-
             $table->timestamps();
         });
     }

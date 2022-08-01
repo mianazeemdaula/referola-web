@@ -13,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('campaign_packages', function (Blueprint $table) {
+        Schema::create('earings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('campaign_id');
-            $table->boolean('price_code');
-            $table->unsignedInteger('price');
-            $table->unsignedInteger('buyer_disc');
-            $table->unsignedInteger('refer_comm');
-            $table->unsignedInteger('referee_comm');
+            $table->unsignedBigInteger('user_id');
+            $table->morphs('earningable');
+            $table->string('description');
+            $table->double('amount');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campaign_packages');
+        Schema::dropIfExists('earings');
     }
 };

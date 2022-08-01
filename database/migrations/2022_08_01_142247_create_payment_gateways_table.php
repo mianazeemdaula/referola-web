@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('campaign_packages', function (Blueprint $table) {
+        Schema::create('payment_gateways', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('campaign_id');
-            $table->boolean('price_code');
-            $table->unsignedInteger('price');
-            $table->unsignedInteger('buyer_disc');
-            $table->unsignedInteger('refer_comm');
-            $table->unsignedInteger('referee_comm');
+            $table->string('logo')->nullable();
+            $table->string('url');
+            $table->string('secret_key');
+            $table->string('secret_api');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('campaign_packages');
+        Schema::dropIfExists('payment_gateways');
     }
 };
