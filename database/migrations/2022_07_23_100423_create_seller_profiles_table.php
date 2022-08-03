@@ -31,6 +31,7 @@ return new class extends Migration
             $table->boolean('is_bonded');
             $table->boolean('is_insured');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

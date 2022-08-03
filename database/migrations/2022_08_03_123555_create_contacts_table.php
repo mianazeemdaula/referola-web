@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('payment_gateways', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('logo')->nullable();
-            $table->string('url');
-            $table->string('secret_key');
-            $table->string('secret_api');
-            $table->boolean('status');
+            $table->unsignedBigInteger('user_id');
+            $table->string('contact');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payment_gateways');
+        Schema::dropIfExists('contacts');
     }
 };

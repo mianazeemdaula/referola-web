@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('content');
             $table->float('rating');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('payment_gateways', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('logo')->nullable();
-            $table->string('url');
-            $table->string('secret_key');
-            $table->string('secret_api');
-            $table->boolean('status');
+            $table->unsignedBigInteger('user_id');
+            $table->string('title');
+            $table->string('body');
+            $table->dateTime('notification_time');
+            $table->boolean('is_read')->default(false);
+            $table->json('payload');
+            $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payment_gateways');
+        Schema::dropIfExists('notifications');
     }
 };

@@ -18,11 +18,12 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('payment_gateway_id');
             $table->string('trans_id');
-            $table->text('data');
+            $table->json('payload');
             $table->string('description');
             $table->double('amount');
             $table->string('status');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

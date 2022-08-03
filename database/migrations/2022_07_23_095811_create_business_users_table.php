@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('seller_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

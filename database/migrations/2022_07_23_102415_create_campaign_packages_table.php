@@ -23,6 +23,7 @@ return new class extends Migration
             $table->unsignedInteger('refer_comm');
             $table->unsignedInteger('referee_comm');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -23,9 +23,10 @@ return new class extends Migration
             $table->string('content');
             $table->unsignedInteger('user_share');
             $table->unsignedInteger('friend_share');
-            $table->unsignedInteger('user_share');
+            // $table->unsignedInteger('user_share');
             $table->longText('terms_and_condition');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
