@@ -21,7 +21,6 @@ return new class extends Migration
             $table->dateTime('notification_time');
             $table->boolean('is_read')->default(false);
             $table->json('payload');
-            $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
             $table->softDeletes();
