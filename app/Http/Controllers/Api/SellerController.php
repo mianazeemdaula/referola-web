@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class SellerController extends Controller
 {
-    public function strore(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'logo' => 'required',
