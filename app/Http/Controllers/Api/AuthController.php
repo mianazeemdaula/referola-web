@@ -20,7 +20,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             $user = User::find(Auth::id());
-            $user->tokens()->delete();
+            // $user->tokens()->delete();
             $user['token'] = $user->createToken('referola')->plainTextToken;
             return response()->json($user);
         }
