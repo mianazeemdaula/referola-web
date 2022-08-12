@@ -53,6 +53,6 @@ class SellerController extends Controller
 
     public function show($id)
     {
-        return response()->json(['data' =>  SellerProfile::find($id)]);
+        return response()->json(['data' =>  SellerProfile::with(['user'])->where('id', $id)->first()]);
     }
 }

@@ -14,6 +14,11 @@ class SellerProfile extends Model
         'is_bonded' => 'boolean',
         'is_insured' => 'boolean',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     // protected $fillable = [
     //     'user_id',
     //     'profile_image',
