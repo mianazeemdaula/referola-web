@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedBigInteger('user_type_id');
+            $table->string('fcm_token')->nullable();
+            $table->unsignedBigInteger('user_type_id')->default(5);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
