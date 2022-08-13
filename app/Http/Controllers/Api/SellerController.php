@@ -34,8 +34,8 @@ class SellerController extends Controller
         $seller->user_id = $userId;
         $seller->logo = $request->logo;
         $seller->about = $request->about;
-        $seller->name = $request->business_name;
-        $seller->email = $request->business_email;
+        $seller->name = $request->name;
+        $seller->email = $request->email;
         $seller->phone_no = $request->phone_no;
         $seller->website_url = $request->website_url;
         $seller->address = $request->address;
