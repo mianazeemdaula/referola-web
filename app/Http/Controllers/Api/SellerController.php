@@ -11,7 +11,7 @@ class SellerController extends Controller
 {
     public function store(Request $request)
     {
-        $valid =  Validator::make($request->all(), [
+        $this->validate($request, [
             'logo' => 'required',
             'name' => 'required',
             'about' => 'required',
@@ -29,12 +29,8 @@ class SellerController extends Controller
             'is_bonded' => 'required',
             'is_insured' => 'required',
         ]);
-        if ($valid->failed()) {
-            return response()->json($valid->errors());
-        }
-        // $this->validate($request, );
-        $userId = auth()->user();
-        return response()->json($userId);
+        $userId = auth()->id();
+        return response()->json($request->all());
         $seller = new  SellerProfile;
         $seller->user_id = $userId;
         $seller->logo = $request->logo;
