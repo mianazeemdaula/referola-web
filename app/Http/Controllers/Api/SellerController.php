@@ -11,7 +11,7 @@ class SellerController extends Controller
 {
     public function store(Request $request)
     {
-        $valid =  Validator::make($request, [
+        $valid =  Validator::make($request->all(), [
             'logo' => 'required',
             'name' => 'required',
             'about' => 'required',
