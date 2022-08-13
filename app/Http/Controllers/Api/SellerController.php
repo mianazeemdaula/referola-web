@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\SellerProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SellerController extends Controller
 {
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $valid =  Validator::make($request, [
             'logo' => 'required',
             'name' => 'required',
             'about' => 'required',
@@ -28,6 +29,10 @@ class SellerController extends Controller
             'is_bonded' => 'required',
             'is_insured' => 'required',
         ]);
+        if ($valid->failed()) {
+            return response()->json($valid->errors());
+        }
+        // $this->validate($request, );
         $userId = auth()->id();
         return response()->json($request->all());
         $seller = new  SellerProfile;
