@@ -30,7 +30,6 @@ class SellerController extends Controller
             'is_insured' => 'required',
         ]);
         $userId = auth()->id();
-        return response()->json($request->all());
         $seller = new  SellerProfile;
         $seller->user_id = $userId;
         $seller->logo = $request->logo;
