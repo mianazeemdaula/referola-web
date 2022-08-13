@@ -33,8 +33,8 @@ class SellerController extends Controller
             return response()->json($valid->errors());
         }
         // $this->validate($request, );
-        $userId = auth()->id();
-        return response()->json($request->all());
+        $userId = auth()->user();
+        return response()->json($userId);
         $seller = new  SellerProfile;
         $seller->user_id = $userId;
         $seller->logo = $request->logo;
