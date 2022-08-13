@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('business_users', function (Blueprint $table) {
-            $table->id();
+        Schema::create('seller_users', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('seller_id');
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('business_users');
+        Schema::dropIfExists('seller_users');
     }
 };

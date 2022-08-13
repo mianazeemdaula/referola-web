@@ -19,6 +19,11 @@ class SellerProfile extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'seller_users', 'seller_id', 'user_id');
+    }
     // protected $fillable = [
     //     'user_id',
     //     'profile_image',

@@ -21,6 +21,7 @@ class UserTypeSeeder extends Seeder
             ['name' => 'business'],
             ['name' => 'seller'],
             ['name' => 'user'],
+            ['name' => 'seller-manager'],
         ]);
     }
 }
