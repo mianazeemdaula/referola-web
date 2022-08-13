@@ -28,7 +28,7 @@ class SellerController extends Controller
             'is_bonded' => 'required',
             'is_insured' => 'required',
         ]);
-        $userId = request()->user()->id();
+        $userId = auth()->id();
         $seller = new  SellerProfile;
         $seller->user_id = $userId;
         $seller->logo = $request->logo;
