@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Validator;
 
 class SellerController extends Controller
 {
+
+    public function index()
+    {
+        return response()->json(['data' =>  SellerProfile::all()]);
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
