@@ -44,10 +44,10 @@ class SellerController extends Controller
         $seller->state = $request->state;
         $seller->tax_id = $request->tax_id;
         $seller->country = $request->country;
-        $seller->is_license = $request->is_license;
-        $seller->is_home_based = $request->is_home_based;
-        $seller->is_bonded = $request->is_bonded;
-        $seller->is_insured = $request->is_insured;
+        $seller->is_license = (int) $request->is_license;
+        $seller->is_home_based = (int) $request->is_home_based;
+        $seller->is_bonded = (int) $request->is_bonded;
+        $seller->is_insured = (int) $request->is_insured;
         $seller->save();
         return response()->json(['data' =>  $seller]);
     }
