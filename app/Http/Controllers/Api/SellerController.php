@@ -12,7 +12,7 @@ class SellerController extends Controller
 
     public function index()
     {
-        return response()->json(['data' =>  SellerProfile::all()]);
+        return response()->json(['data' =>  SellerProfile::with(['user'])->get()]);
     }
 
     public function store(Request $request)
