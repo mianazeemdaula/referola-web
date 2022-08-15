@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\SellerController;
 use App\Http\Controllers\Api\SellerUserController;
+use App\Http\Controllers\Api\CampainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::resource('seller', SellerController::class);
     Route::post('seller-user-register', [SellerUserController::class, 'register']);
     Route::resource('seller-user', SellerUserController::class);
+    Route::resource('campain', CampainController::class);
 });
