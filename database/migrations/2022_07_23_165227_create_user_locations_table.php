@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('user_locations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('address');
-            $table->string('zipcode');
             $table->string('country');
+            $table->char('state', 2);
+            $table->string('address');
             $table->string('city');
+            $table->string('zipcode');
             $table->point('position');
             $table->timestamps();
             $table->softDeletes();

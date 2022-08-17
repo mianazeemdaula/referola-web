@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('phone_no');
             $table->string('website_url');
             $table->string('address');
-            $table->unsignedInteger('zipcode');
+            $table->string('zipcode');
             $table->string('country');
             $table->string('state');
             $table->string('city');

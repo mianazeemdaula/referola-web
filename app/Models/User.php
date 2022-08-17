@@ -33,6 +33,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'deleted_at',
     ];
 
     /**
@@ -51,6 +52,6 @@ class User extends Authenticatable
 
     public function sellers()
     {
-        return $this->belongsToMany(SellerProfile::class, 'seller_users', 'seller_id', 'user_id');
+        return $this->belongsToMany(SellerProfile::class, 'seller_users');
     }
 }

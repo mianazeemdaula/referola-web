@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('seller_users', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('seller_id');
+            $table->unsignedBigInteger('seller_profile_id');
         });
     }
 

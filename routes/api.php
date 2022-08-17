@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\SellerController;
 use App\Http\Controllers\Api\SellerUserController;
 use App\Http\Controllers\Api\CampainController;
+use App\Models\SellerProfile;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+
+
+Route::get('test/{id}', function ($id) {
+    $data = User::find($id)->sellers[0];
+    return response()->json($data);
+});
+
 
 
 Route::middleware('auth:sanctum')->group(function () {
