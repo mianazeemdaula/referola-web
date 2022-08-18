@@ -15,9 +15,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([UserTypeSeeder::class]);
-        \App\Models\User::factory(20)->create();
+        \App\Models\User::factory(20)->state(new Sequence(
+            fn ($i) => $i->index < 10 ?  ['email' => "seller{$i->index}@gmail.com", "user_type_id" => 4] : ['email' => "user{$i->index}@gmail.com", "user_type_id" => 5]
+        ))->create();
         \App\Models\UserLocation::factory(50)->create();
-        \App\Models\SellerProfile::factory(20)->state(new Sequence(
+        \App\Models\SellerProfile::factory(10)->state(new Sequence(
             fn ($i) => ['user_id' => $i->index + 1],
         ))->create();
         \App\Models\User::factory(10)->create()->each(function ($u) {
