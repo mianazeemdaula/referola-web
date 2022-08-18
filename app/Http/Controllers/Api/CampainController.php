@@ -24,10 +24,10 @@ class CampainController extends Controller
             'friend_share' => 'required',
             'terms_and_condition' => 'required'
         ]);
-        $userId = auth()->id();
-        $seller = auth()->user()->sellers->first;
+        $user = auth()->user();
+        $seller = $user->user_type_id == 4 ? $user->seller : $user->sellers[0];
         $campain = new  Campaign();
-        $campain->user_id = $userId;
+        $campain->user_id = $user->id;
         $campain->seller_id = $seller->id;
         $campain->campaign_type_id = $request->type;
         $campain->name = $request->name;
