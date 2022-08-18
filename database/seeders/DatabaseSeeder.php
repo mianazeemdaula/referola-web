@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(10)->create()->each(function ($u) {
             $u->sellers()->attach(rand(1, 20));
         });
+        \App\Models\Notification::factory(200)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

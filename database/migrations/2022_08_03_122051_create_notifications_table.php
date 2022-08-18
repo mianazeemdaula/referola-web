@@ -18,7 +18,6 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->string('body');
-            $table->dateTime('notification_time');
             $table->boolean('is_read')->default(false);
             $table->json('payload');
             $table->foreign('user_id')->references('id')->on('users');
