@@ -30,7 +30,7 @@ Route::post('/login', [AuthController::class, 'login']);
 
 
 Route::get('test/{id}', function ($id) {
-    $data = User::find($id)->sellers[0];
+    $data = User::find($id)->sellers;
     return response()->json($data);
 });
 

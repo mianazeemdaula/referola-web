@@ -29,7 +29,7 @@ class CampainController extends Controller
         $campain = new  Campaign();
         $campain->user_id = $user->id;
         $campain->seller_id = $seller->id;
-        $campain->campaign_type_id = $request->type;
+        $campain->campaign_type_id = $request->campaign_type_id;
         $campain->name = $request->name;
         $campain->description = $request->description;
         $campain->content = $request->content;
